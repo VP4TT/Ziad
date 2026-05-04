@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoElite - Contact Us</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info h2 {
+            color: #1e3c72;
+            margin-bottom: 35px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        .info-item {
+            margin-bottom: 30px;
+            display: flex;
+            align-items: start;
+            gap: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .info-item:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+        }
+        
+        .info-icon {
+            font-size: 32px;
+            min-width: 40px;
+        }
+        
+        .info-text h4 {
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .info-text p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+        }
+        
+        .contact-form h2 {
+            color: #1e3c72;
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: 600;
+            font-size: 15px;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ff6b6b;
+            box-shadow: 0 0 0 3px rgba(255,107,107,0.1);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff5252 100%);
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255,107,107,0.4);
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255,107,107,0.5);
+        }
+        
+        .map-section {
+            padding: 60px 0;
+            background-color: #f4f4f4;
+        }
+        
+                .map-container {
+            width: 100%;
+            height: 450px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        .branches-section {
+            padding: 60px 0;
+            background: white;
+        }
+        
+        .branches-table {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        td {
+            padding: 18px;
+            border-bottom: 1px solid #eee;
+            color: #555;
+            font-size: 15px;
+        }
+        
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        body.dark-theme .contact-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+        }
+        
+        body.dark-theme .contact-info h2,
+        body.dark-theme .contact-form h2 {
+            color: #ff6b6b;
+        }
+        
+        body.dark-theme .info-item {
+            background-color: #2a2a2a;
+        }
+        
+        body.dark-theme .info-text h4 {
+            color: #e0e0e0;
+        }
+        
+        body.dark-theme .info-text p {
+            color: #ccc;
+        }
+        
+        body.dark-theme .contact-form {
+            background-color: #2a2a2a;
+        }
+        
+        body.dark-theme .form-group label {
+            color: #e0e0e0;
+        }
+        
+        body.dark-theme .form-group input,
+        body.dark-theme .form-group textarea {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            border-color: #444;
+        }
+        
+        body.dark-theme .map-section {
+            background-color: #1a1a1a;
+        }
+        
+        body.dark-theme .branches-section {
+            background-color: #2a2a2a;
+        }
+        
+        body.dark-theme .branches-table {
+            background-color: #2a2a2a;
+        }
+        
+        body.dark-theme th {
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+        }
+        
+        body.dark-theme td {
+            color: #ccc;
+            border-color: #444;
+        }
+        
+        body.dark-theme tr:hover {
+            background-color: #333;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            table {
+                font-size: 14px;
+            }
+            
+            th, td {
+                padding: 12px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>AutoElite</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="cars.html">Cars</a></li>
+                    <li><a href="test-drive.html">Test Drive</a></li>
+                    <li><a href="catalogs.html">Catalogs</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </nav>
+            <button id="theme-btn" onclick="changeTheme()">Switch Theme</button>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <h2>Contact Us</h2>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                                        <h2>Get In Touch</h2>
+                                        <div class="info-item">
+                                            <div class="info-icon"></div>
+                                            <div class="info-text">
+                                                <h4>Address</h4>
+                                                <p>Nile Street - Maadi<br>Cairo, Egypt</p>
+                                            </div>
+                                        </div>
+                                        <div class="info-item">
+                                            <div class="info-icon"></div>
+                                            <div class="info-text">
+                                                <h4>Phone</h4>
+                                                <p>+201099268708<br>+201009058835</p>
+                                            </div>
+                                        </div>
+                                        <div class="info-item">
+                                            <div class="info-icon"></div>
+                                            <div class="info-text">
+                                                <h4>Email</h4>
+                                                <p>ziad@autoelite.com<br>mohamed@autoelite.com<br>mohamed@autoelite.com<br>mohamed@autoelite.com<br>abdulrahman@autoelite.com<br>maryam@autoelite.com<br>israa@autoelite.com</p>
+                                            </div>
+                                        </div>
+                                        <div class="info-item">
+                                            <div class="info-icon"></div>
+                                            <div class="info-text">
+                                                <h4>Working Hours</h4>
+                                                <p>Saturday - Thursday: 9 AM - 8 PM<br>Friday: Closed</p>
+                                            </div>
+                                        </div>
+                </div>
+
+                <div class="contact-form">
+                    <h2>Send Us a Message</h2>
+                    <form onsubmit="return submitContactForm(event)">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="container">
+                        <h2 style="text-align: center; margin-bottom: 40px; font-size: 32px;">Find Us on Map</h2>
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.123!2d31.231!3d29.972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjnCsDU4JzE5LjIiTiAzMcKwMTMnNTEuNiJF!5e0!3m2!1sen!2seg!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+        </div>
+    </section>
+
+    <section class="branches-section">
+        <div class="container">
+                        <h2 style="text-align: center; margin-bottom: 40px; font-size: 32px;">Our Branches</h2>
+                        <div class="branches-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Branch</th>
+                                        <th>Location</th>
+                                        <th>Phone</th>
+                                        <th>Cars Available</th>
+                                        <th>Service Center</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Main Branch</td>
+                                        <td>Cairo - Maadi</td>
+                                        <td>+201099268708</td>
+                                        <td>150 Cars</td>
+                                        <td>Yes</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alexandria Branch</td>
+                                        <td>Alexandria - Miami</td>
+                                        <td>+201014470713</td>
+                                        <td>100 Cars</td>
+                                        <td>Yes</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Giza Branch</td>
+                                        <td>Giza - Mohandiseen</td>
+                                        <td>+201023803046</td>
+                                        <td>80 Cars</td>
+                                        <td>No</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mansoura Branch</td>
+                                        <td>Mansoura - Downtown</td>
+                                        <td>+201009058835</td>
+                                        <td>60 Cars</td>
+                                        <td>Yes</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+                        <p>&copy; 2026 AutoElite Showroom - All Rights Reserved</p>
+                        <p>Address: Downtown, Cairo, Egypt | Phone: +201014470713</p>
+                        <p style="margin-top: 10px; font-size: 14px; opacity: 0.9;">Helwan University - Faculty of Computers and Information</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function submitContactForm(e) {
+            e.preventDefault();
+            alert('Thank you for contacting us! We will respond to you as soon as possible.');
+            e.target.reset();
+            return false;
+        }
+    </script>
+</body>
+</html>
